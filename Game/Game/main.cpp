@@ -2,6 +2,8 @@
 #include <Windows.h>;
 
 int board[10][10] = {};
+int moveX = 4;
+int moveY = 4;
 bool playing = true;
 
 void showBoard()
@@ -27,19 +29,31 @@ void movePlayer(int x, int y)
 {
 	if(GetAsyncKeyState(VK_UP))
 	{
-		
+		board[y][x] = 0;
+		board[y - 1][x] = 1;
+		system("CLS");
+		showBoard();
 	}
 	if(GetAsyncKeyState(VK_DOWN))
 	{
-	
+		board[y][x] = 0;
+		board[y + 1][x] = 1;
+		system("CLS");
+		showBoard();
 	}
 	if(GetAsyncKeyState(VK_LEFT))
 	{
-	
+		board[y][x] = 0;
+		board[y][x - 1] = 1;
+		system("CLS");
+		showBoard();
 	}
 	if(GetAsyncKeyState(VK_RIGHT))
 	{
-	
+		board[y][x] = 0;
+		board[y][x + 1] = 1;
+		system("CLS");
+		showBoard();
 	}
 	if(GetAsyncKeyState(VK_ESCAPE))
 	{
@@ -51,7 +65,7 @@ void gameLoop()
 {
 	while(playing == true)
 	{
-		movePlayer(4, 4);
+		movePlayer(moveX, moveY);
 	}
 }
 
