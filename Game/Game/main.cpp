@@ -6,7 +6,7 @@ int moveX = 4;
 int moveY = 4;
 bool playing = true;
 
-void showBoard()
+void showBoard()	//prints out the board on console
 {
 	for(int i = 0; i < 10; i++)
 	{
@@ -18,20 +18,20 @@ void showBoard()
 	}
 }
 
-void startingPos(int x, int y)
+void startingPos(int x, int y)	//sets the starting position to 1
 {
 	board[y][x] = 1;
 	showBoard();
 	std::cout << std::endl;
 }
 
-void movePlayer(int x, int y)
+void movePlayer(int x, int y)	//need to figure out how to move with the keypresses
 {
 	if(GetAsyncKeyState(VK_UP))
 	{
 		board[y][x] = 0;
 		board[y - 1][x] = 1;
-		system("CLS");
+		system("CLS");			//just for testing right now
 		showBoard();
 	}
 	if(GetAsyncKeyState(VK_DOWN))
@@ -69,7 +69,7 @@ void gameLoop()
 	}
 }
 
-void populateBoard()
+void populateBoard()		//fills the board with 0's
 {
 	for(int i = 0; i < 10; i++)
 	{
